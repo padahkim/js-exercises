@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Vanilla Coding | Bootcamp Prep</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./styles/index.css" rel="stylesheet" />
+  </head>
+  <body>
+    <section class="start__page">
+      <img src="images/start_img.jpg" alt="banner_picture" />
+      <div class="start__page__right">
+        <h1 class="start__h1">JavaScript Card Quiz</h1>
+        <button class="start button">Start</button>
+      </div>
+    </section>
+
+    <section class = "quiz__page hidden">
+      <!-- Your Quiz goes here -->
+      <div class="container">
+        <div class="container__header">
+          <h3 class="score"></h3>
+          <h3 class="timer">10</h3>
+          <h3 class="current__question"></h3>
+        </div>
+        <h1 class="question"></h1>
+        <h2 class="code"></h2>
+        <h2 class="timeout"></h2>
+        <ul class="choices"></ul>
+        <h2 class="collect__answer"></h2>
+        <h1 class="thanks"></h1>
+        <button class="next button hidden">Next</button>
+        <button class="restart button hidden">Restart</button>
+      </div>
+    </section>
+    <script src="./app/index.js"></script>
+  </body>
+</html>
