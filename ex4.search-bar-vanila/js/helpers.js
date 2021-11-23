@@ -10,27 +10,27 @@ export function qsAll(selector, scope = document) {
   return Array.from(scope.querySelectorAll(selector));
 }
 
-export function on(target, eventName, handler) {
+export function on(target, eventName, handler) {//target에서 이벤트 발행, 발생시 handler함수 호출
   target.addEventListener(eventName, handler);
 }
 
 export function delegate(target, eventName, selector, handler) {
   const emitEvent = (event) => {
-    const potentialElements = qsAll(selector, target);
+    const potentialElements = qsAll(selector, target);//타겟 엘리먼트에서 셀릭트로 모든엘리먼트를 찾고,
 
-    for (const potentialElement of potentialElements) {
-      if (potentialElement === event.target) {
-        return handler.call(event.target, event);
+    for (const potentialElement of potentialElements) {//순회
+      if (potentialElement === event.target) {//후보들중 = 이벤트를 발생시킨엘레먼트가 있으면
+        return handler.call(event.target, event);//핸들러 함수를 호출
       }
     }
   };
 
-  on(target, eventName, emitEvent);
+  on(target, eventName, emitEvent); //이벤트 핸들러를 emit으로 랩핑함
 }
 
-export function emit(target, eventName, detail) {
-  const event = new CustomEvent(eventName, { detail });
-  target.dispatchEvent(event);
+export function emit(target, eventName, detail) {//
+  const event = new CustomEvent(eventName, { detail });//커스텀이벤트생성
+  target.dispatchEvent(event);//타겟 엘리먼트가 이용 할 수 있도록 발행
 }
 
 export function formatRelativeDate(date = new Date()) {

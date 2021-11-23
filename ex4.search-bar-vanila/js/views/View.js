@@ -7,14 +7,14 @@ export default class View {
     if (!element) throw "no element";
 
     this.element = element;
-    this.originalDisplay = this.element.style.dispaly || "";
+    this.originalDisplay = this.element.style.display || "";
 
     return this;
   }
 
   hide() {
     this.element.style.display = "none";
-    return this;
+    return this;//여기서의 this는 view 객체
   }
 
   show() {
@@ -24,7 +24,7 @@ export default class View {
 
   on(eventName, handler) {
     on(this.element, eventName, handler);
-    return this;
+    return this;//this 리턴 메소드 체이닝 가능
   }
 
   emit(eventName, data) {
