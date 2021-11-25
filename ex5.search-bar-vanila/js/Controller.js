@@ -1,12 +1,16 @@
+import { TabType } from "./views/TabView.js";
+
 const tag = "[Controller]";
 
 export default class Controller {
-  constructor(store, {searchFormView, searchResultView, tabView}) {
+  constructor(store, {searchFormView, searchResultView, tabView, keywordListView, historyListView}) {
     this.store = store;
 
     this.searchFormView = searchFormView;
     this.searchResultView = searchResultView;
     this.tabView = tabView;
+    this.keywordListView = keywordListView;
+    this.historyListView = historyListView;
 
     // TODO
     //this.deleteViewEvents();
@@ -26,7 +30,11 @@ export default class Controller {
     .on("@reset", () => this.reset())
     
     //TODO
-    this.tabView.on('@change', event => this.changeTab(event.detail.value))
+    this.tabView.on("@change", event => this.changeTab(event.detail.value))
+
+    this.keywordListView.on("@click", event => this.search(event.detail.value))
+
+    this.historyListView.on("@click", event => this.search(event.detail.value))
   }
 
   search(searchKeyword) {
@@ -54,11 +62,26 @@ export default class Controller {
     }
 
     this.tabView.show(this.store.selectedTab);
+    if ( this.store.selectedTab === TabType.KEYWORD) {
+      this.keywordListView.show(this.store.getKeywordList());
+      this.historyListView.hide();
+    } else if (this.store.selectedTab === TabType.HISTORY) {
+      this.keywordListView.hide();
+      this.historyListView.show(this.store.getHistoryList());
+    } else {
+      throw "사용할 수 없는 탭입니다.";
+    }
+
     this.searchResultView.hide();
   }  
+  
     renderSearchResult(){
+      this.searchFormView.show(this.store.searchKeyword);
       this.tabView.show();
-      this.searchResultView.hide();
+      this.keywordListView.hide();
+      this.historyListView.hide();
+      
+      this.searchResultView.show(this.store.searchResult);
     }
 }
 

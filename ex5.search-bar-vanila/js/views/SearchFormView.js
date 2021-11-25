@@ -54,4 +54,11 @@ export default class SearchFormView extends View {
         this.emit("@reset");//수신자 컨트롤러//커스텀 이벤트만 발행
         //this.showResetButton(false);
     }
+
+    show(value = "") {
+        this.inputElement.value = value;
+        this.showResetButton(this.inputElement.value.length>0);
+
+        super.show()
+    }
 }
