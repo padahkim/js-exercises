@@ -1,42 +1,23 @@
-import React, { useState }from 'react'
+import React from 'react'
 import Habit from './habit'
 
-export default function Habits() {
-  const [state, setState] = 
-  useState({
-    habits:[
-    {id:1, name:"Running", count:0},
-    {id:2, name:"Heating", count:0},
-    {id:3, name:"Dating", count:0},
-  ]});
-
-  const handelIncrement = (habit) => {
-    const habits = [...state.habits];
-    const index = habits.indexOf(habit);
-    habits[index].count++;
-    setState({habits:habits})
-  }
+export default function Habits(props) {
 
   function handleDecrement(habit) {
-    const habits = [...state.habits];
-    const index = habits.indexOf(habit);
-    let count = habits[index].count
-    habits[index].count = count > 1 ? count -1 : 0;
-    setState({habits})
+    props.onDecrement(habit)
   }
 
   const handleReset = (habit) => {
-    const habits = state.habits.filter((item)=>habit.id!==item.id)
-    setState({habits})
+    props.onReset(habit)
   }
 
   return (
     <ul>
-      {state.habits.map((habit)=>
+      {props.habits.map((habit)=>
       <Habit 
       habit={habit} 
       key={habit.id}
-      onIncrement={handelIncrement}
+      onIncrement={(habit)=>props.onIncrement(habit)}
       onDecrement={handleDecrement}
       onReset={handleReset}
       />)}
