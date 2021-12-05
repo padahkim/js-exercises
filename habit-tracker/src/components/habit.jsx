@@ -1,30 +1,28 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 function Habit (props) {
-  const [count, setCount] = useState(0);
-  let currentCount = count;
+  const {name, count} = props.habit;
 
-  function handleIncrement() {
-    currentCount+= 1;
-    setCount(currentCount)
-  }
   function handleDecrement() {
-    currentCount = currentCount > 0 ? currentCount - 1: 0
-    setCount(currentCount)
+    props.onDecrement(props.habit);
+  }
+
+  const onReset = () => {
+    props.onReset(props.habit);
   }
 
     return (
     <>
     <li className="habit">
-      <span className="habit-name">{props.habit.name}</span>
+      <span className="habit-name">{name}</span>
       <span className="habit-count">{count}</span>
-      <button className="habit-button habit-increase" onClick={handleIncrement}>
+      <button className="habit-button habit-increase" onClick={() => props.onIncrement(props.habit)}>
         <i className="fas fa-plus-square"></i>
       </button>
       <button className="habit-button habit-decrease" onClick={handleDecrement}>
         <i className="fas fa-minus-square"></i>
       </button>
-      <button className="habit-button habit-delete">
+      <button className="habit-button habit-delete" onClick={onReset}>
         <i className="fas fa-trash"></i>
       </button>
     </li>
@@ -33,4 +31,3 @@ function Habit (props) {
 }
 
 export default Habit;
-//onClick={()=>setCount(count-1)}
