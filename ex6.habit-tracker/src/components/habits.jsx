@@ -1,42 +1,27 @@
-import React, { Component } from 'react';
-import Habit from './habit'
+import React from 'react';
+import Habit from './habit';
 import HabitAddForm from './habitAddForm';
 
-class Habits extends Component {
-  handleIncrement = (habit) => {
-    this.props.onIncrement(habit);
-  };
-
-  handleDecrement = (habit) => {
-    this.props.onDecrement(habit);
-  };
-
-  handleDelete = (habit) => {
-    this.props.onDelete(habit);
-  };
-  handleAdd = (name) => {
-    this.props.onAdd(name);
-  };
-
-  render() {
-    return (<>
-    <HabitAddForm onAdd={this.handleAdd}/>
-    <ul>
-      {this.props.habits.map(habit => (//habits []의 각 엘리먼트를 <Habit/>으로 변환 한 배열을 리턴
-        <Habit 
-          key = {habit.id}
-          habit = {habit}
-          onIncrement={this.handleIncrement} 
-          onDecrement={this.handleDecrement} 
-          onDelete={this.handleDelete}
+const Habits = (props) => {
+  return (
+    <div className="habits">
+      <HabitAddForm onAdd={props.onAdd} />
+      <ul>
+        {props.habits.map(habit => (
+          <Habit
+            key={habit.id}
+            habit={habit}
+            onIncrement={props.onIncrement}
+            onDecrement={props.onDecrement}
+            onDelete={props.onDelete}
           />
         ))}
-    </ul>
-    <button className="habits-reset" onClick={this.props.onReset}>Reset All</button>
-    </>
+      </ul>
+      <button className="habits-reset" onClick={props.onReset}>
+        Reset All
+      </button>
+    </div>
     );
-  }
-}
-
+  };
 
 export default Habits;
