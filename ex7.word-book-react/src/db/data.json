@@ -15,6 +15,10 @@
     {
       "day": 4,
       "id": 4
+    },
+    {
+      "day": 5,
+      "id": 5
     }
   ],
   "words": [
@@ -40,32 +44,11 @@
       "isDone": false
     },
     {
-      "id": 6,
-      "day": 3,
-      "eng": "pencil",
-      "kor": "연필",
-      "isDone": false
-    },
-    {
-      "day": "3",
-      "eng": "window",
-      "kor": "창문",
-      "isDone": false,
-      "id": 7
-    },
-    {
       "day": "3",
       "eng": "house",
       "kor": "집",
       "isDone": false,
       "id": 8
-    },
-    {
-      "day": "2",
-      "eng": "mouse",
-      "kor": "쥐",
-      "isDone": false,
-      "id": 9
     },
     {
       "day": "4",
@@ -76,17 +59,101 @@
     },
     {
       "day": "4",
-      "eng": "apple",
-      "kor": "사과",
+      "eng": "window",
+      "kor": "창문",
       "isDone": false,
       "id": 11
     },
     {
-      "day": "3",
-      "eng": "apple",
-      "kor": "사과",
+      "day": "4",
+      "eng": "house",
+      "kor": "집",
       "isDone": false,
       "id": 12
+    },
+    {
+      "day": "4",
+      "eng": "mouse",
+      "kor": "쥐마우스",
+      "isDone": false,
+      "id": 13
+    },
+    {
+      "day": "4",
+      "eng": "Economics",
+      "kor": "경제학",
+      "isDone": false,
+      "id": 14
+    },
+    {
+      "day": "4",
+      "eng": "market",
+      "kor": "시장",
+      "isDone": false,
+      "id": 15
+    },
+    {
+      "day": "1",
+      "eng": "economics",
+      "kor": "경제학",
+      "isDone": false,
+      "id": 16
+    },
+    {
+      "day": "3",
+      "eng": "Partner",
+      "kor": "파트너",
+      "isDone": false,
+      "id": 17
+    },
+    {
+      "day": "3",
+      "eng": "math",
+      "kor": "수학",
+      "isDone": false,
+      "id": 18
+    },
+    {
+      "day": "1",
+      "eng": "fitness",
+      "kor": "피트니스",
+      "isDone": false,
+      "id": 19
+    },
+    {
+      "day": "4",
+      "eng": "Industry",
+      "kor": "산업",
+      "isDone": false,
+      "id": 20
+    },
+    {
+      "day": "2",
+      "eng": "speaker",
+      "kor": "스피커",
+      "isDone": false,
+      "id": 21
+    },
+    {
+      "day": "2",
+      "eng": "business",
+      "kor": "사업",
+      "isDone": false,
+      "id": 22
+    },
+    {
+      "day": "2",
+      "eng": "English",
+      "kor": "영어",
+      "isDone": false,
+      "id": 23
+    },
+    {
+      "day": "5",
+      "eng": "monkey",
+      "kor": "원숭이",
+      "isDone": false,
+      "id": 24
     }
   ]
 }
