@@ -1,11 +1,10 @@
 const express = require("express"); // call express from library
 const app = express(); // var app is instance of express
 
-app.use(express.json);
+app.use(express.json());
 
 const db = require("./models");
 
-// Routers
 const postRouter = require("./routes/Posts");
 app.use("/posts", postRouter);
 
